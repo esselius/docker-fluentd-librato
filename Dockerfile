@@ -12,8 +12,12 @@ RUN echo "deb https://get.docker.io/ubuntu docker main" > /etc/apt/sources.list.
 RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y lxc-docker-1.0.1
 
-# Fluentd with docker and librato plugins
-RUN gem install fluentd fluent-plugin-librato fluent-plugin-docker-metrics
+# Fluentd with docker, librato, loggly, and sumologic plugins
+RUN git clone https://github.com/benburkert/fluent-plugin-docker-metrics && \
+    cd fluent-plugin-docker-metrics && \
+    gem build fluent-plugin-docker-metrics.gemspec && \
+    gem install fluent-plugin-docker-metrics-*.gem
+RUN gem install fluentd fluent-plugin-librato
 
 # Template for fluentd config
 COPY fluent.conf /etc/fluent/fluent.conf
