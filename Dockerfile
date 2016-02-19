@@ -1,4 +1,4 @@
-FROM ruby:2.3-onbuild
+FROM ruby:2.3
 
 MAINTAINER Peter Esselius <pepp@me.com>
 
@@ -11,6 +11,10 @@ RUN apt-get update && \
 		apt-get install -y docker-engine
 
 COPY fluent.conf /etc/fluent/fluent.conf
+
+WORKDIR /tmp
+COPY Gemfile* /tmp/
+RUN bundle install
 
 COPY startup.sh /tmp/
 RUN chmod +x /tmp/startup.sh

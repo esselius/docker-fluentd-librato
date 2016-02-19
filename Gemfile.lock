@@ -1,18 +1,10 @@
 GIT
-  remote: https://github.com/kiyoto/fluent-plugin-docker-metrics.git
-  revision: b2e1caf69a4c8e4573f1f540b464162efe8fbe63
+  remote: https://github.com/esselius/fluent-plugin-docker-metrics.git
+  revision: 38bad947da6d52de2ac48f4e3a5add95288c8bcc
   specs:
     fluent-plugin-docker-metrics (0.0.2)
       docker-api
       fluentd
-
-GIT
-  remote: https://github.com/kiyoto/fluent-plugin-librato.git
-  revision: c2fe2389aef9ccfcb3631e004ea6f4404f0efdaa
-  specs:
-    fluent-plugin-librato (0.0.1)
-      fluentd
-      librato-metrics
 
 GEM
   remote: https://rubygems.org/
@@ -25,6 +17,9 @@ GEM
     excon (0.45.4)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
+    fluent-plugin-librato (0.0.1)
+      fluentd
+      librato-metrics
     fluentd (0.12.20)
       cool.io (>= 1.2.2, < 2.0.0)
       http_parser.rb (>= 0.5.1, < 0.7.0)
@@ -58,5 +53,5 @@ PLATFORMS
 
 DEPENDENCIES
   fluent-plugin-docker-metrics!
-  fluent-plugin-librato!
+  fluent-plugin-librato
   fluentd
